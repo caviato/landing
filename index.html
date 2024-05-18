@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Montserrat;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+    }
+
+    a {
+      margin: 1rem;
+    }
+
+    a:any-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0 5vw;
+      font-size: 3rem;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    h2 {
+      margin: 0 0 1.5rem 0;
+      padding: 0;
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    button {
+      border: transparent;
+      border-radius: 1.6rem;
+      font-family: Montserrat;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .hero,
+    #how-it-works,
+    .user-review,
+    .mission,
+    .cta,
+    .faq {
+      padding: 0px 8vw;
+      margin: 2rem 0;
+    }
+
+    .hero {
+      margin: 0;
+      background-color: lightgrey;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 80vh;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .hero button {
+      margin: 8vh auto 0px auto;
+    }
+
+    #how-it-works {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .switch {
+      text-align: center;
+    }
+
+    .step {
+      margin: 2rem 0;
+    }
+
+    .step h4,
+    .step p {
+      padding: 0;
+      margin: 0.5rem 0px;
+      text-align: justify;
+    }
+
+    .user-review {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .main-carousel {
+      margin-top: 5vh;
+    }
+
+    .user {
+      width: 100%;
+    }
+
+    .user img {
+      display: block;
+      margin: auto;
+      border-radius: 50px;
+    }
+
+    .user p {
+      text-align: justify;
+      padding: 0 2rem;
+    }
+
+    .user span {
+      font-style: italic;
+    }
+
+    .cta {
+      background-color: lightgrey;
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    .cta>* {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form {
+      margin-top: 5vh;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .question {
+      max-width: 500px;
+      margin: auto;
+      border-bottom: 2px solid;
+    }
+
+    .accordion {
+      border-radius: 0;
+      background-color: inherit;
+      color: #444;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    .accordion:after {
+      content: '\02795';
+      /* Unicode character for "plus" sign (+) */
+      font-size: 13px;
+      color: #777;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2796";
+      /* Unicode character for "minus" sign (-) */
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      background-color: lightgrey;
+      padding: 1rem 8vw;
+    }
+
+    @media only screen and (max-width: 768px) {
+      nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        align-items: center;
+        height: 5vh;
+      }
+
+      a {
+        margin: 0;
+      }
+
+      a:any-link {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      h1 {
+        margin: 0;
+        padding: 0 5vw;
+        font-size: 3rem;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      h2 {
+        margin: 0 0 1.5rem 0;
+        padding: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      button {
+        border: transparent;
+        border-radius: 1.6rem;
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      .hero {
+        margin: 0;
+        background-color: lightgrey;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80vh;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .hero button {
+        margin: 8vh auto 0px auto;
+      }
+
+      .switch {
+        text-align: center;
+      }
+
+      .step {
+        margin: 2rem 0;
+      }
+
+      .step h4,
+      .step p {
+        padding: 0;
+        margin: 0.5rem 0px;
+        text-align: justify;
+      }
+
+
+      .user-review h2 {
+        margin-bottom: 1.5rem;
+      }
+
+      .main-carousel {
+        margin-top: 5vh;
+      }
+
+      .user img {
+        display: block;
+        margin: auto;
+        border-radius: 50px;
+      }
+
+      .cta {
+        background-color: lightgrey;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+      }
+
+      .question {
+        border-bottom: 2px solid;
+      }
+
+      footer {
+        background-color: lightgrey;
+        padding: 1rem 8vw;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#how-it-works">How it works</a>
+    <a href="#sign-up">Sign up</a>
+    <a href="#faq">FAQs</a>
+  </nav>
+  <div class="hero">
+    <h1>
+      Buy anything, <br />
+      From anywhere
+    </h1>
+    <p>
+      No more "wish I could buy that here"!
+      Stop wishing and start shopping with our global traveler network.
+    </p>
+    <button>Shop now!</button>
+  </div>
+
+  <div id="how-it-works">
+    <h2>How it works</h2>
+
+    <div class="switch">
+      <button id="buyer-switch">For Buyer</button>
+      <button id="seller-switch">For Seller</button>
+    </div>
+
+    <div id="buyer">
+      <div class="step">
+        <img src="https://placehold.co/400x250" alt="step 1" width="100%">
+        <h4>Request an item</h4>
+        <p>
+          Place a request on our platform.
+          Gives us as much information about the item as you can (eg. where to buy, price, link to website, ...)
+        </p>
+      </div>
+
+      <div class="step">
+        <img src="https://placehold.co/400x250" alt="step 1" width="100%">
+        <h4>Wait for an offer</h4>
+        <p>
+          We will send your request to our network of travellers,
+          and notify you when there is someone offering their services.
+        </p>
+      </div>
+
+      <div class="step">
+        <img src="https://placehold.co/400x250" alt="step 1" width="100%">
+        <h4>Make payment and receive your good</h4>
+        <p>
+          Once you accept an offer that you like,
+          make a payment to Caviato.
+          Only when you confirm that you have received the goods,
+          will we release the fund to the seller.
+        </p>
+      </div>
+    </div>
+
+    <div id="seller">
+      <div class="step">
+        <img src="https://placehold.co/400x250" alt="step 1" width="100%">
+        <h4>Sign up with us as a traveler</h4>
+        <p>
+          We will give you access to our list of requests from buyers.
+          You can pick and choose request that align with your travel destination and timeline.
+        </p>
+      </div>
+
+      <div class="step">
+        <img src="https://placehold.co/400x250" alt="step 1" width="100%">
+        <h4>Make an offer</h4>
+        <p>
+          You can decide how much money you would want to claim as reward for completing a request.
+          We will send your offer to the buyers
+          and notify you when they accept it.
+        </p>
+      </div>
+
+      <div class="step">
+        <img src="https://placehold.co/400x250" alt="step 1" width="100%">
+        <h4>Complete the request and receive the reward</h4>
+        <p>
+          After completing the request,
+          just send out a request for fund release to us and
+          you will receive the reward immediately in your bank account.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="user-review">
+    <h2>
+      User reviews
+    </h2>
+    <p>Here is what our users have to say about our services</p>
+
+    <div class="main-carousel">
+
+      <div class="user">
+        <img src="https://placehold.co/100x100" alt="avatar">
+        <p>
+          "I can't believe I can get a better spec Asus ROG Strix from Walmart that is 30% cheaper compare to Singapore
+          without having to step a foot out of the country"
+          <span class="name">- Buyer A</span>
+        </p>
+      </div>
+
+      <div class="user">
+        <img src="https://placehold.co/100x100" alt="avatar">
+        <p>
+          "OMG I receive my limited edition bag within 2 WEEKS from putting in request"
+          <span class="name">- Buyer B</span>
+        </p>
+      </div>
+
+      <div class="user">
+        <img src="https://placehold.co/100x100" alt="avatar">
+        <p>
+          "I get make enough money to fund my Gundam craze and get to meet with all the buyers who also love Gundam. Who
+          knows there are so many people who are also into Gundam in Singapore."
+          <span class="name">- Buyer B</span>
+        </p>
+      </div>
+
+      <div class="user">
+        <img src="https://placehold.co/100x100" alt="avatar">
+        <p>
+          "I make enough money from the reward to cover my airfare. That is bonker!"
+          <span class="name">- Seller A</span>
+        </p>
+      </div>
+
+      <div class="user">
+        <img src="https://placehold.co/100x100" alt="avatar">
+        <p>
+          "Nothing beats vacation that paid for itself."
+          <span class="name">- Seller B</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="sign-up" class="cta">
+    <h2>Sign up now</h2>
+    <p>
+      Sign up with us now and your first order will incur no service fee - is the least we could do for our early
+      supporters
+    </p>
+    <div class="form">
+      <button>For buyer</button>
+      <button>For seller</button>
+    </div>
+  </div>
+
+  <div id="faq" class="faq">
+    <h2>FAQ</h2>
+
+    <div class="question">
+      <button class="accordion">Section 1</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button class="accordion">Section 1</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+<footer>
+  Copyright Caviato <br>
+  Contact us at: contact@caviato.xyz
+</footer>
+
+</html>
