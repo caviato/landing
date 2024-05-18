@@ -1,10 +1,17 @@
+const RED = "#D85A42";
+const GREEN = "#67B9A4";
+const WHITE = "#F6F7EB";
+const BLACK = "#393E40";
+const GRAY = "#D9D9D9";
+
 let buyer = document.getElementById("buyer")
 let seller = document.getElementById("seller")
 
 let buyerSwitch = document.getElementById("buyer-switch");
-buyerSwitch.style.background = "red";
+buyerSwitch.style.background = GREEN;
 
 let sellerSwitch = document.getElementById("seller-switch");
+sellerSwitch.style.background = GRAY;
 
 let sellerSteps = seller.children
 for (const step of sellerSteps) {
@@ -12,8 +19,8 @@ for (const step of sellerSteps) {
 }
 
 buyerSwitch.addEventListener("click", () => {
-  buyerSwitch.style.background = "red"
-  sellerSwitch.style.background = "#EFEFEF"
+  buyerSwitch.style.background = GREEN;
+  sellerSwitch.style.background = GRAY;
 
   let buyerSteps = buyer.children
   for (const step of buyerSteps) {
@@ -27,8 +34,8 @@ buyerSwitch.addEventListener("click", () => {
 })
 
 sellerSwitch.addEventListener("click", () => {
-  sellerSwitch.style.background = "red"
-  buyerSwitch.style.background = "#EFEFEF"
+  sellerSwitch.style.background = RED;
+  buyerSwitch.style.background = GRAY;
 
   let buyerSteps = buyer.children
   for (const step of buyerSteps) {

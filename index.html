@@ -11,17 +11,30 @@
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <style>
+    :root {
+      --green: #67B9A4;
+      --red: #D85A42;
+      --white: #F6F7EB;
+      --grey: #D9D9D9;
+    }
+
     html,
     body {
       margin: 0;
       padding: 0;
       font-family: Montserrat;
+      background-color: var(--white);
     }
 
     nav {
       display: flex;
       align-items: center;
-      height: 3rem;
+      height: 4rem;
+    }
+
+    nav img {
+      margin-left: 2rem;
+      margin-right: 1rem;
     }
 
     a {
@@ -58,6 +71,14 @@
       padding: 0.8rem 1.5rem;
     }
 
+    button:hover {
+      background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
     .hero,
     #how-it-works,
     .user-review,
@@ -84,10 +105,6 @@
       margin: 2rem auto;
     }
 
-    .hero button {
-      margin: 8vh auto 0px auto;
-    }
-
     #how-it-works {
       max-width: 500px;
       margin: 2rem auto;
@@ -95,6 +112,10 @@
 
     .switch {
       text-align: center;
+    }
+
+    .switch button:first-child {
+      margin-right: 2rem;
     }
 
     .step {
@@ -114,6 +135,7 @@
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
+      height: fit-content;
     }
 
     .main-carousel {
@@ -127,7 +149,7 @@
     .user img {
       display: block;
       margin: auto;
-      border-radius: 50px;
+      border-radius: 150px;
     }
 
     .user p {
@@ -137,10 +159,11 @@
 
     .user span {
       font-style: italic;
+      font-weight: bold;
     }
 
     .cta {
-      background-color: lightgrey;
+      background-color: var(--grey);
       padding-top: 2rem;
       padding-bottom: 4rem;
     }
@@ -152,9 +175,18 @@
     }
 
     .form {
-      margin-top: 5vh;
+      margin: 5vh auto 0 auto;
       display: flex;
       justify-content: space-evenly;
+      width: 500px;
+    }
+
+    .form button:first-child {
+      background-color: var(--green);
+    }
+
+    .form button:last-child {
+      background-color: var(--red);
     }
 
     .question {
@@ -176,16 +208,13 @@
       transition: 0.4s;
     }
 
-    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
     .active,
     .accordion:hover {
       background-color: #ccc;
     }
 
-    /* Style the accordion panel. Note: hidden by default */
     .panel {
       padding: 0 18px;
-      background-color: white;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.2s ease-out;
@@ -193,7 +222,6 @@
 
     .accordion:after {
       content: '\02795';
-      /* Unicode character for "plus" sign (+) */
       font-size: 13px;
       color: #777;
       float: right;
@@ -202,14 +230,15 @@
 
     .active:after {
       content: "\2796";
-      /* Unicode character for "minus" sign (-) */
     }
 
     footer {
+      background-color: var(--grey);
+      text-align: center;
+      height: 5vh;
       display: flex;
+      align-items: center;
       justify-content: center;
-      background-color: lightgrey;
-      padding: 1rem 8vw;
     }
 
     @media only screen and (max-width: 768px) {
@@ -219,6 +248,10 @@
         justify-items: center;
         align-items: center;
         height: 5vh;
+      }
+
+      nav img {
+        display: none;
       }
 
       a {
@@ -246,15 +279,6 @@
         text-align: center;
       }
 
-      button {
-        border: transparent;
-        border-radius: 1.6rem;
-        font-family: Montserrat;
-        font-weight: 500;
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
-      }
-
       .hero {
         margin: 0;
         background-color: lightgrey;
@@ -269,12 +293,24 @@
         font-size: 1.2rem;
       }
 
-      .hero button {
-        margin: 8vh auto 0px auto;
+      .form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 100%;
       }
+
+      .form button {
+        margin: 0px auto 1rem auto;
+      }
+
 
       .switch {
         text-align: center;
+      }
+
+      .switch button:first-child {
+        margin: 0;
       }
 
       .step {
@@ -288,19 +324,12 @@
         text-align: justify;
       }
 
-
       .user-review h2 {
         margin-bottom: 1.5rem;
       }
 
       .main-carousel {
         margin-top: 5vh;
-      }
-
-      .user img {
-        display: block;
-        margin: auto;
-        border-radius: 50px;
       }
 
       .cta {
@@ -324,6 +353,7 @@
 
 <body>
   <nav>
+    <img src="/assets/Full.png" alt="logo" height="40px" />
     <a href="#how-it-works">How it works</a>
     <a href="#sign-up">Sign up</a>
     <a href="#faq">FAQs</a>
@@ -337,7 +367,10 @@
       No more "wish I could buy that here"!
       Stop wishing and start shopping with our global traveler network.
     </p>
-    <button>Shop now!</button>
+    <div class="form">
+      <button>Shop now!</button>
+      <button>Become a traveler!</button>
+    </div>
   </div>
 
   <div id="how-it-works">
@@ -345,7 +378,7 @@
 
     <div class="switch">
       <button id="buyer-switch">For Buyer</button>
-      <button id="seller-switch">For Seller</button>
+      <button id="seller-switch">For Traveler</button>
     </div>
 
     <div id="buyer">
@@ -421,44 +454,44 @@
     <div class="main-carousel">
 
       <div class="user">
-        <img src="https://placehold.co/100x100" alt="avatar">
+        <img src="/assets/Daniel.jpg" alt="avatar" width="150px">
         <p>
           "I can't believe I can get a better spec Asus ROG Strix from Walmart that is 30% cheaper compare to Singapore
           without having to step a foot out of the country"
-          <span class="name">- Buyer A</span>
+          <span class="name" style="color: var(--green)">- Daniel</span>
         </p>
       </div>
 
       <div class="user">
-        <img src="https://placehold.co/100x100" alt="avatar">
+        <img src="/assets/Allisa.jpg" alt="avatar" width="150px">
         <p>
           "OMG I receive my limited edition bag within 2 WEEKS from putting in request"
-          <span class="name">- Buyer B</span>
+          <span class="name" style="color: var(--green)">- Allisa</span>
         </p>
       </div>
 
       <div class="user">
-        <img src="https://placehold.co/100x100" alt="avatar">
+        <img src="/assets/Ethan.jpg" alt="avatar" width="150px">
         <p>
           "I get make enough money to fund my Gundam craze and get to meet with all the buyers who also love Gundam. Who
           knows there are so many people who are also into Gundam in Singapore."
-          <span class="name">- Buyer B</span>
+          <span class="name" style="color: var(--green)">- Ethan</span>
         </p>
       </div>
 
       <div class="user">
-        <img src="https://placehold.co/100x100" alt="avatar">
+        <img src="/assets/Ahmad.jpg" alt="avatar" width="150px">
         <p>
           "I make enough money from the reward to cover my airfare. That is bonker!"
-          <span class="name">- Seller A</span>
+          <span class="name" style="color: var(--red)">- Ahmad</span>
         </p>
       </div>
 
       <div class="user">
-        <img src="https://placehold.co/100x100" alt="avatar">
+        <img src="/assets/RuiYing.jpg" alt="avatar" width="150px">
         <p>
           "Nothing beats vacation that paid for itself."
-          <span class="name">- Seller B</span>
+          <span class="name" style="color: var(--red)">- Rui Ying</span>
         </p>
       </div>
 
@@ -468,12 +501,12 @@
   <div id="sign-up" class="cta">
     <h2>Sign up now</h2>
     <p>
-      Sign up with us now and your first order will incur no service fee - is the least we could do for our early
-      supporters
+      Sign up with us now and become a part of our global community.
+      Your first order will incur no service fee - courtesy of the house.
     </p>
     <div class="form">
-      <button>For buyer</button>
-      <button>For seller</button>
+      <button>Order now!</button>
+      <button>Make money traveling!</button>
     </div>
   </div>
 
@@ -498,8 +531,11 @@
 </body>
 
 <footer>
-  Copyright Caviato <br>
-  Contact us at: contact@caviato.xyz
+  <div>
+    Copyright © 2024 Caviato
+    <br />
+    Contact us at <b>contact@caviato.xyz</b>
+  </div>
 </footer>
 
 </html>
