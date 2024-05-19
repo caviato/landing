@@ -48,15 +48,7 @@ sellerSwitch.addEventListener("click", () => {
   }
 })
 
-
-var elem = document.querySelector('.main-carousel');
-var flkty = new Flickity( elem, {
-  cellAlign: 'left',
-  contain: true,
-  autoPlay: 3000,
-  prevNextButtons: false,
-  wrapAround: true,
-});
+new Glide(".glide", { autoplay: 5000 }).mount()
 
 var acc = document.getElementsByClassName("accordion");
 var i;

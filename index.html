@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide/dist/css/glide.core.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
   <style>
     :root {
       --green: #67B9A4;
@@ -131,7 +131,8 @@
 
     .user-review {
       padding-top: 2rem;
-      padding-bottom: 4rem;
+      /* padding-bottom: 4rem; */
+      margin-bottom: 4rem;
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
@@ -160,6 +161,23 @@
     .user span {
       font-style: italic;
       font-weight: bold;
+    }
+
+    .glide__arrows {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .glide__arrows button:first-child {
+      background-color: transparent;
+      color: var(--green);
+      font-size: 3rem;
+    }
+
+    .glide__arrows button:last-child {
+      background-color: transparent;
+      color: var(--red);
+      font-size: 3rem;
     }
 
     .cta {
@@ -451,48 +469,74 @@
     </h2>
     <p>Here is what our users have to say about our services</p>
 
-    <div class="main-carousel">
+    <div class="glide">
 
-      <div class="user">
-        <img src="/assets/Daniel.jpg" alt="avatar" width="150px">
-        <p>
-          "I can't believe I can get a better spec Asus ROG Strix from Walmart that is 30% cheaper compare to Singapore
-          without having to step a foot out of the country"
-          <span class="name" style="color: var(--green)">- Daniel</span>
-        </p>
-      </div>
+      <div class="glide__track" data-glide-el="track">
 
-      <div class="user">
-        <img src="/assets/Allisa.jpg" alt="avatar" width="150px">
-        <p>
-          "OMG I receive my limited edition bag within 2 WEEKS from putting in request"
-          <span class="name" style="color: var(--green)">- Allisa</span>
-        </p>
-      </div>
+        <ul class="glide__slides">
 
-      <div class="user">
-        <img src="/assets/Ethan.jpg" alt="avatar" width="150px">
-        <p>
-          "I get make enough money to fund my Gundam craze and get to meet with all the buyers who also love Gundam. Who
-          knows there are so many people who are also into Gundam in Singapore."
-          <span class="name" style="color: var(--green)">- Ethan</span>
-        </p>
-      </div>
+          <li class="glide__slide">
+            <div class="user">
+              <img src="/assets/Daniel.jpg" alt="avatar" width="150px">
+              <p>
+                "I can't believe I can get a better spec Asus ROG Strix from Walmart that is 30% cheaper compare to
+                Singapore
+                without having to step a foot out of the country"
+                <span class="name" style="color: var(--green)">- Daniel</span>
+              </p>
+            </div>
+          </li>
 
-      <div class="user">
-        <img src="/assets/Ahmad.jpg" alt="avatar" width="150px">
-        <p>
-          "I make enough money from the reward to cover my airfare. That is bonker!"
-          <span class="name" style="color: var(--red)">- Ahmad</span>
-        </p>
-      </div>
+          <li class="glide__slide">
+            <div class="user">
+              <img src="/assets/Allisa.jpg" alt="avatar" width="150px">
+              <p>
+                "OMG I receive my limited edition bag within 2 WEEKS from putting in request"
+                <span class="name" style="color: var(--green)">- Allisa</span>
+              </p>
+            </div>
+          </li>
 
-      <div class="user">
-        <img src="/assets/RuiYing.jpg" alt="avatar" width="150px">
-        <p>
-          "Nothing beats vacation that paid for itself."
-          <span class="name" style="color: var(--red)">- Rui Ying</span>
-        </p>
+          <li class="glide__slide">
+            <div class="user">
+              <img src="/assets/Ethan.jpg" alt="avatar" width="150px">
+              <p>
+                "I get make enough money to fund my Gundam craze and get to meet with all the buyers who also love
+                Gundam.
+                Who
+                knows there are so many people who are also into Gundam in Singapore."
+                <span class="name" style="color: var(--green)">- Ethan</span>
+              </p>
+            </div>
+          </li>
+
+          <li class="glide__slide">
+            <div class="user">
+              <img src="/assets/Ahmad.jpg" alt="avatar" width="150px">
+              <p>
+                "I make enough money from the reward to cover my airfare. That is bonker!"
+                <span class="name" style="color: var(--red)">- Ahmad</span>
+              </p>
+            </div>
+          </li>
+
+          <li class="glide__slide">
+            <div class="user">
+              <img src="/assets/RuiYing.jpg" alt="avatar" width="150px">
+              <p>
+                "Nothing beats vacation that paid for itself."
+                <span class="name" style="color: var(--red)">- Rui Ying</span>
+              </p>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&lt;</button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&gt;</button>
+        </div>
+
       </div>
 
     </div>
@@ -604,6 +648,15 @@
           but we will have to unfortunately charge extra collection fees
           depending on the type and value of the items as our logistic team is still growing to provide cheaper service
           in the nearer future.
+        </p>
+      </div>
+    </div>
+
+    <div class="question">
+      <button class="accordion">How do I contact Caviato if there is a problem?</button>
+      <div class="panel">
+        <p>
+          You can contact us at <b>contact@caviato.xyz</b>
         </p>
       </div>
     </div>
