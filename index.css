@@ -222,9 +222,9 @@ p {
   background-color: var(--green);
 }
 
-.form a:last-child button {
-  background-color: var(--red);
-}
+/* .form a:last-child button { */
+/*   background-color: var(--red); */
+/* } */
 
 .question {
   max-width: 500px;
