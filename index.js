@@ -1,5 +1,5 @@
-const RED = "#D85A42";
-const GREEN = "#67B9A4";
+const RED = "#E42D52";
+const YELLOW = "#FFC53F";
 const WHITE = "#F6F7EB";
 const BLACK = "#393E40";
 const GRAY = "#D9D9D9";
@@ -8,7 +8,7 @@ let buyer = document.getElementById("buyer")
 let seller = document.getElementById("seller")
 
 let buyerSwitch = document.getElementById("buyer-switch");
-buyerSwitch.style.background = GREEN;
+buyerSwitch.style.background = YELLOW;
 
 let sellerSwitch = document.getElementById("seller-switch");
 sellerSwitch.style.background = GRAY;
@@ -19,7 +19,7 @@ for (const step of sellerSteps) {
 }
 
 buyerSwitch.addEventListener("click", () => {
-  buyerSwitch.style.background = GREEN;
+  buyerSwitch.style.background = YELLOW;
   sellerSwitch.style.background = GRAY;
 
   let buyerSteps = buyer.children

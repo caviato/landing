@@ -1,9 +1,10 @@
 :root {
-  --green: #67B9A4;
-  --red: #D85A42;
+  --yellow: #FFC53F;
+  --red: #E42D52;
+  --bgred: #92112B;
   --white: #F6F7EB;
   --grey: #D9D9D9;
-  --black: #393E40;
+  --black: #1D0303;
 }
 
 html,
@@ -123,7 +124,7 @@ p {
 }
 
 #buyer .step {
-  background-color: var(--green);
+  background-color: var(--yellow);
 }
 
 #seller .step {
@@ -186,7 +187,7 @@ p {
 
 .glide__arrows button:first-child {
   background-color: transparent;
-  color: var(--green);
+  color: var(--yellow);
   font-size: 3rem;
 }
 
@@ -219,7 +220,7 @@ p {
 }
 
 .form a:first-child button {
-  background-color: var(--green);
+  background-color: var(--yellow);
 }
 
 /* .form a:last-child button { */
