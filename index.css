@@ -57,8 +57,9 @@ button {
   border-radius: 1.6rem;
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding: 0.8rem 1.5rem;
+  background: var(--yellow);
 }
 
 button:hover {
@@ -81,16 +82,25 @@ p {
 
 .hero {
   margin: 0;
-  background-image: url("/assets/hero.jpg");
+  background-image: url("/assets/hero.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: lightgrey;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* text-align: center; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  min-height: 80vh;
   height: 80vh;
+  position: relative;
+}
+
+.hero a {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  top: 70%;
 }
 
 .content {
@@ -113,6 +123,7 @@ p {
 #how-it-works {
   max-width: 500px;
   margin: 2rem auto;
+  text-align: justify;
 }
 
 .switch {
