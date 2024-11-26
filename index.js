@@ -3,52 +3,6 @@
 // const WHITE = "#F6F7EB";
 // const BLACK = "#393E40";
 // const GRAY = "#D9D9D9";
-//
-// let buyer = document.getElementById("buyer")
-// let seller = document.getElementById("seller")
-//
-// let buyerSwitch = document.getElementById("buyer-switch");
-// buyerSwitch.style.background = YELLOW;
-//
-// let sellerSwitch = document.getElementById("seller-switch");
-// sellerSwitch.style.background = GRAY;
-//
-// let sellerSteps = seller.children
-// for (const step of sellerSteps) {
-//   step.style.display = "none"
-// }
-//
-// buyerSwitch.addEventListener("click", () => {
-//   buyerSwitch.style.background = YELLOW;
-//   sellerSwitch.style.background = GRAY;
-//
-//   let buyerSteps = buyer.children
-//   for (const step of buyerSteps) {
-//     step.style.display = "block"
-//   }
-//
-//   let sellerSteps = seller.children
-//   for (const step of sellerSteps) {
-//     step.style.display = "none"
-//   }
-// })
-//
-// sellerSwitch.addEventListener("click", () => {
-//   sellerSwitch.style.background = RED;
-//   buyerSwitch.style.background = GRAY;
-//
-//   let buyerSteps = buyer.children
-//   for (const step of buyerSteps) {
-//     step.style.display = "none"
-//   }
-//
-//   let sellerSteps = seller.children
-//   for (const step of sellerSteps) {
-//     step.style.display = "block"
-//   }
-// })
-
-new Glide(".glide", { autoplay: 5000 }).mount()
 
 // var acc = document.getElementsByClassName("accordion");
 // var i;
@@ -65,3 +19,33 @@ new Glide(".glide", { autoplay: 5000 }).mount()
 //   });
 // }
 
+const landing = document.getElementById("landing");
+const about = document.getElementById("about");
+const careers = document.getElementById("careers");
+const faqs = document.getElementById("faqs");
+
+let tab = [landing, about, careers, faqs];
+
+function changeTab(el) {
+  console.log(el.innerHTML);
+  console.log();
+  if (el.innerText === "ABOUT US") {
+    makeHidden(1);
+  }
+  if (el.innerText === "CAREERS") {
+    makeHidden(2);
+  }
+  if (el.innerText === "FAQS") {
+    makeHidden(3);
+  }
+}
+
+function makeHidden(pos) {
+  tab.forEach((el, i) => {
+    if (i == pos) {
+      el.classList.remove("hidden");
+    } else {
+      el.classList.add("hidden");
+    }
+  });
+}
