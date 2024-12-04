@@ -183,6 +183,25 @@ a:any-link {
   max-height: 200px;
 }
 
+/* Try page */
+.try-now {
+  margin: auto;
+  width: 60vw;
+  min-height: calc(92vh - 112px);
+}
+
+.try-now h1 {
+  text-align: center;
+}
+
+.try-now h2 {
+  text-align: center;
+}
+
+#getWaitlistContainer div {
+  max-width: none;
+}
+
 /* For footer and disclaimer */
 
 footer {
